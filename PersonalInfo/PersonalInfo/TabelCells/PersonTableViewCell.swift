@@ -10,7 +10,6 @@ import UIKit
 class PersonTableViewCell: UITableViewCell {
 
     private var person = Person.getPerson()
-    var personViewController = PersonViewController()
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
@@ -27,8 +26,8 @@ class PersonTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func deleteButton(_ sender: Any) {
-        person.removeLast()
-        personViewController.personInfoTabel.reloadData()
+        
+        removeFromSuperview()
     }
     
 }

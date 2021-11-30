@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B1U-a3-Goc">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,19 +12,19 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PersonViewController" customModule="PersonalInfo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="PersoneViewController">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="AXl-nJ-zbL">
-                                <rect key="frame" x="16" y="104" width="382" height="81"/>
+                                <rect key="frame" x="16" y="60" width="568" height="81"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Имя:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y49-hL-2qx">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="34"/>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Возраст:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zXi-rX-GK4">
-                                        <rect key="frame" x="0.0" y="47" width="382" height="34"/>
+                                        <rect key="frame" x="0.0" y="47" width="568" height="34"/>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
@@ -36,7 +35,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho4-EE-Y8Z">
-                                <rect key="frame" x="116" y="815" width="182" height="31"/>
+                                <rect key="frame" x="116" y="553" width="368" height="31"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Очистить" titleAlignment="center">
                                     <backgroundConfiguration key="background">
                                         <color key="strokeColor" systemColor="systemRedColor"/>
@@ -49,7 +48,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDx-qe-pcK">
-                                <rect key="frame" x="186" y="212" width="212" height="31"/>
+                                <rect key="frame" x="186" y="168" width="398" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="+ Добавить ребёнка" subtitle="" titleAlignment="center">
                                     <backgroundConfiguration key="background">
@@ -61,34 +60,34 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дети (макс. 5)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wih-3L-0mJ">
-                                <rect key="frame" x="16" y="215" width="131" height="24"/>
+                                <rect key="frame" x="16" y="171" width="131" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gaF-Ro-iOa">
-                                <rect key="frame" x="0.0" y="259" width="414" height="540"/>
+                                <rect key="frame" x="0.0" y="215" width="600" height="322"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="2" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="105" id="cYa-d9-syX" customClass="PersonTableViewCell" customModule="PersonalInfo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="105"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="600" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="left" semanticContentAttribute="playback" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cYa-d9-syX" id="JlP-dh-fF2">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Имя" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2GQ-Bf-LoX">
-                                                    <rect key="frame" x="20" y="11" width="104" height="34"/>
+                                                    <rect key="frame" x="16" y="11" width="298" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Возраст" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6vw-gR-TXM">
-                                                    <rect key="frame" x="20" y="61" width="104" height="34"/>
+                                                    <rect key="frame" x="16" y="61" width="298" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUP-3x-nL9">
-                                                    <rect key="frame" x="140" y="12" width="90" height="31"/>
+                                                    <rect key="frame" x="330" y="12" width="90" height="31"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Удалить"/>
                                                     <connections>
@@ -146,7 +145,7 @@
                     <navigationItem key="navigationItem" id="1K0-S7-Ab7"/>
                     <connections>
                         <outlet property="addChildButton" destination="XDx-qe-pcK" id="s4k-iY-56q"/>
-                        <outlet property="personInfoTabel" destination="gaF-Ro-iOa" id="dkW-sP-8lm"/>
+                        <outlet property="personInfoTable" destination="gaF-Ro-iOa" id="dkW-sP-8lm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
