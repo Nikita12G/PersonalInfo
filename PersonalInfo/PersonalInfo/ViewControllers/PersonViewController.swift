@@ -20,6 +20,13 @@ class PersonViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Персональные данные"
         registerForKeyboardNotifications()
+        nameTextField.returnKeyType = .next
+        ageTextField.returnKeyType = .go
+        nameTextField.delegate = self
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     deinit {
@@ -33,14 +40,6 @@ class PersonViewController: UIViewController {
     @IBAction func clear(_ sender: Any) {
         showAlert()
     }
-    @IBAction func nameAction(_ sender: Any) {
-        nameTextField.resignFirstResponder()
-    }
-    
-    @IBAction func ageAction(_ sender: Any) {
-        ageTextField.resignFirstResponder()
-    }
-    
     
     //    MARK: - Private methods
     
@@ -83,7 +82,7 @@ class PersonViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    func removeKeyboardNotification () {
+    private func removeKeyboardNotification () {
         NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -98,6 +97,17 @@ class PersonViewController: UIViewController {
         personInfoTable.contentOffset = CGPoint.zero
     }
     
+    @objc func deleteRow(_ sender: UIButton) {
+        let point = sender.convert(CGPoint.zero, to: personInfoTable)
+        guard let indexPath = personInfoTable.indexPathForRow(at: point) else {
+            return
+        }
+        person.remove(at: indexPath.row)
+        personInfoTable.deleteRows(at: [indexPath], with: .left)
+        if person.count < 5 {
+            addChildButton.isHidden = false
+        }
+    }
 }
 //    MARK: - UITableView Data Source
 
@@ -110,6 +120,10 @@ extension PersonViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PersonTableViewCell
+        
+        if let deleteButton = cell.contentView.viewWithTag(102) as? UIButton {
+            deleteButton.addTarget(self, action: #selector(deleteRow(_ :)), for: .touchUpInside)
+        }
         
         return cell
     }
@@ -136,5 +150,31 @@ extension PersonViewController: UITableViewDelegate {
             }
         }
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if personInfoTable.isDecelerating {
+            view.endEditing(true)
+        }
+    }
+}
+
+//    MARK: - UITextField Delegate
+
+extension PersonViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = nameTextField.superview?.viewWithTag(nameTextField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            nameTextField.resignFirstResponder()
+            return true
+        }
+        return false
+    }
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if (indexPath.section == 0) {return nil}
+        if ( indexPath.row <= 2 ) {return nil}
+        return indexPath
+    }
+    
 }
 
