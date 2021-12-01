@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B1U-a3-Goc">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,21 +13,27 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PersonViewController" customModule="PersonalInfo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="PersoneViewController">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="AXl-nJ-zbL">
-                                <rect key="frame" x="16" y="60" width="568" height="81"/>
+                                <rect key="frame" x="16" y="104" width="382" height="81"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Имя:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y49-hL-2qx">
-                                        <rect key="frame" x="0.0" y="0.0" width="568" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
                                         <attributedString key="attributedText"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <action selector="nameAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="FoL-UK-NVN"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Возраст:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zXi-rX-GK4">
-                                        <rect key="frame" x="0.0" y="47" width="568" height="34"/>
+                                        <rect key="frame" x="0.0" y="47" width="382" height="34"/>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="ageAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="FmP-wS-oRe"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -35,7 +42,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ho4-EE-Y8Z">
-                                <rect key="frame" x="116" y="553" width="368" height="31"/>
+                                <rect key="frame" x="116" y="815" width="182" height="31"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Очистить" titleAlignment="center">
                                     <backgroundConfiguration key="background">
                                         <color key="strokeColor" systemColor="systemRedColor"/>
@@ -48,7 +55,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDx-qe-pcK">
-                                <rect key="frame" x="186" y="168" width="398" height="31"/>
+                                <rect key="frame" x="186" y="212" width="212" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="+ Добавить ребёнка" subtitle="" titleAlignment="center">
                                     <backgroundConfiguration key="background">
@@ -60,53 +67,54 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дети (макс. 5)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wih-3L-0mJ">
-                                <rect key="frame" x="16" y="171" width="131" height="24"/>
+                                <rect key="frame" x="16" y="215" width="131" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gaF-Ro-iOa">
-                                <rect key="frame" x="0.0" y="215" width="600" height="322"/>
+                                <rect key="frame" x="0.0" y="259" width="414" height="540"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="2" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="105" id="cYa-d9-syX" customClass="PersonTableViewCell" customModule="PersonalInfo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="600" height="105"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="left" semanticContentAttribute="playback" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cYa-d9-syX" id="JlP-dh-fF2">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Имя" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2GQ-Bf-LoX">
-                                                    <rect key="frame" x="16" y="11" width="298" height="34"/>
+                                                    <rect key="frame" x="20" y="11" width="104" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Возраст" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6vw-gR-TXM">
-                                                    <rect key="frame" x="16" y="61" width="298" height="34"/>
+                                                    <rect key="frame" x="20" y="61" width="104" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUP-3x-nL9">
-                                                    <rect key="frame" x="330" y="12" width="90" height="31"/>
+                                                    <rect key="frame" x="151" y="12" width="79" height="31"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Удалить"/>
                                                     <connections>
-                                                        <action selector="deleteButton:" destination="cYa-d9-syX" eventType="touchUpInside" id="guK-1a-CjF"/>
+                                                        <action selector="deleteButton:" destination="cYa-d9-syX" eventType="touchUpInside" id="1fY-K1-TP9"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="bUP-3x-nL9" firstAttribute="top" secondItem="JlP-dh-fF2" secondAttribute="topMargin" constant="1" id="0q7-T4-r7s"/>
                                                 <constraint firstItem="2GQ-Bf-LoX" firstAttribute="top" secondItem="JlP-dh-fF2" secondAttribute="topMargin" id="3Sx-mY-a5r"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="6vw-gR-TXM" secondAttribute="trailing" constant="270" id="EX3-me-yhv"/>
-                                                <constraint firstItem="6vw-gR-TXM" firstAttribute="top" secondItem="2GQ-Bf-LoX" secondAttribute="bottom" constant="16" id="G3G-zh-OjU"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="bUP-3x-nL9" secondAttribute="trailing" constant="164" id="Hiw-vB-GyY"/>
+                                                <constraint firstItem="6vw-gR-TXM" firstAttribute="leading" secondItem="2GQ-Bf-LoX" secondAttribute="leading" id="NSQ-lU-o1R"/>
                                                 <constraint firstItem="2GQ-Bf-LoX" firstAttribute="leading" secondItem="JlP-dh-fF2" secondAttribute="leadingMargin" id="Nrh-kj-dfH"/>
-                                                <constraint firstItem="6vw-gR-TXM" firstAttribute="leading" secondItem="JlP-dh-fF2" secondAttribute="leadingMargin" id="c1a-92-AU1"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="bUP-3x-nL9" secondAttribute="bottom" constant="51" id="cJs-cO-ZvD"/>
+                                                <constraint firstItem="6vw-gR-TXM" firstAttribute="top" secondItem="2GQ-Bf-LoX" secondAttribute="bottom" constant="16" id="g9h-nV-yhH"/>
+                                                <constraint firstItem="6vw-gR-TXM" firstAttribute="trailing" secondItem="2GQ-Bf-LoX" secondAttribute="trailing" id="iEy-75-g7O"/>
                                                 <constraint firstItem="2GQ-Bf-LoX" firstAttribute="top" secondItem="JlP-dh-fF2" secondAttribute="topMargin" id="mEA-Jg-ogF"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="2GQ-Bf-LoX" secondAttribute="trailing" constant="270" id="nzG-L1-Vb6"/>
-                                                <constraint firstItem="bUP-3x-nL9" firstAttribute="leading" secondItem="2GQ-Bf-LoX" secondAttribute="trailing" constant="16" id="oDF-Ip-jW9"/>
+                                                <constraint firstItem="bUP-3x-nL9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2GQ-Bf-LoX" secondAttribute="trailing" constant="8" symbolic="YES" id="oDF-Ip-jW9"/>
                                                 <constraint firstItem="bUP-3x-nL9" firstAttribute="top" secondItem="JlP-dh-fF2" secondAttribute="topMargin" constant="1" id="r12-CG-tbV"/>
-                                                <constraint firstAttribute="bottom" secondItem="6vw-gR-TXM" secondAttribute="bottom" constant="10" id="tQY-VI-CVG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -139,12 +147,15 @@
                             <constraint firstItem="gaF-Ro-iOa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fpr-1D-dwu"/>
                             <constraint firstItem="XDx-qe-pcK" firstAttribute="top" secondItem="AXl-nJ-zbL" secondAttribute="bottom" constant="27" id="iwR-nd-p17"/>
                             <constraint firstItem="gaF-Ro-iOa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ocS-iz-oxu"/>
+                            <constraint firstItem="gaF-Ro-iOa" firstAttribute="top" secondItem="Wih-3L-0mJ" secondAttribute="bottom" constant="20" id="rkF-70-HZ2"/>
                             <constraint firstItem="XDx-qe-pcK" firstAttribute="leading" secondItem="Wih-3L-0mJ" secondAttribute="trailing" constant="39" id="y22-Wg-T3V"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1K0-S7-Ab7"/>
                     <connections>
                         <outlet property="addChildButton" destination="XDx-qe-pcK" id="s4k-iY-56q"/>
+                        <outlet property="ageTextField" destination="zXi-rX-GK4" id="8V8-sX-F8y"/>
+                        <outlet property="nameTextField" destination="y49-hL-2qx" id="bx8-eH-VAJ"/>
                         <outlet property="personInfoTable" destination="gaF-Ro-iOa" id="dkW-sP-8lm"/>
                     </connections>
                 </viewController>
